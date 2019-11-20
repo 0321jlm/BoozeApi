@@ -1,11 +1,13 @@
 {
-  "name": "BoozeApi",
+  "name": "boozapi",
   "version": "1.0.0",
-  "description": "",
+  "description": "Fred API test 11/20",
   "main": "server.js",
   "dependencies": {
+    "ejs": "^2.7.4",
     "express": "^4.17.1",
     "init": "^0.1.2",
+    "method-override": "^3.0.0",
     "mongoose": "^5.7.12"
   },
   "devDependencies": {},
