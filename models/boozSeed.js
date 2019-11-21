@@ -5,31 +5,31 @@
 //https://api.openbrewerydb.org/breweries?by_state=connecticut
 //
 
-let  boozSeed = [
+let boozSeed = [
   {
     rating: 4,
-    details: 
-    {
-    id: 1646,
-    name: "Beaver Beer Co",
-    brewery_type: "contract",
-    street: "307 Greens Farms Rd",
-    city: "Westport",
-    state: "Connecticut",
-    postal_code: "06880-6227",
-    country: "United States",
-    longitude: "-73.311685",
-    latitude: "41.12587",
-    phone: "",
-    website_url: "http://www.beaverbeer.com",
-    updated_at: "2018-08-24T00:25:23.884Z",
-    tag_list: [ ]
-    },
+    comments: "Beaver Beer was a great experience",
+    details: {
+      id: 1646,
+      name: "Beaver Beer Co",
+      brewery_type: "contract",
+      street: "307 Greens Farms Rd",
+      city: "Westport",
+      state: "Connecticut",
+      postal_code: "06880-6227",
+      country: "United States",
+      longitude: "-73.311685",
+      latitude: "41.12587",
+      phone: "",
+      website_url: "http://www.beaverbeer.com",
+      updated_at: "2018-08-24T00:25:23.884Z",
+      tag_list: []
+    }
   },
   {
     rating: 3,
-    details: 
-    {
+    comments: "Brass was a good place, food was so so",
+    details: {
       id: 1651,
       name: "Brass Works Brewing Company LLC",
       brewery_type: "micro",
@@ -43,15 +43,15 @@ let  boozSeed = [
       phone: "2035276223",
       website_url: "http://www.brassworksbrewing.com",
       updated_at: "2018-08-24T00:25:27.172Z",
-      tag_list: [ ]
-      },
+      tag_list: []
+    }
   },
   {
-    rating: 5,
-    details: 
-    {
+    rating: 1,
+    comments: "JEFF was bad",
+    details: {
       id: 1670,
-      name: "Counterweight Brewing Company",
+      name: "Joint Eager Fixed Firebox (JEFF) Brewing Company",
       brewery_type: "micro",
       street: "23 Raccio Park Rd",
       city: "Hamden",
@@ -63,10 +63,9 @@ let  boozSeed = [
       phone: "2038217333",
       website_url: "http://www.Counterweightbrewing.com",
       updated_at: "2018-08-24T00:25:33.898Z",
-      tag_list: [ ]
-      },
+      tag_list: []
+    }
   }
-
 ];
 
 module.exports = boozSeed;
