@@ -3,22 +3,34 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const methodOverride = require("method-override");
+const cors = require("cors");
 
 // const port = 3000;
 // Allow use of Heroku's port or your own local port, depending on the environment
 const PORT = process.env.PORT || 3000;
 
 // MIDDLEWARE
-// body parser middleware
+const whitelist = ["http://localhost:3000", "*"];
+const corsOptions = {
+  origin: (origin, callback) => {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  }
+};
 
 app.use(express.json());
+// app.use(cors(corsOptions));
 app.use(methodOverride("_method"));
 // static files middleware
 app.use(express.static(__dirname + "/public"));
 
 // CONTROLLERS
-// const showController = require("./controllers/show.js");
-// app.use("/show", showController);
+const boozController = require("./controllers/booz.js");
+app.use("/booz", boozController);
+const Booz = require("./models/boozModel.js");
 
 app.get("/", (req, res) => {
   Booz.find({}, (error, allBooz) => {
@@ -34,7 +46,6 @@ app.get("/", (req, res) => {
   });
 });
 // SEED ROUTE
-const Booz = require("./models/boozModel.js");
 const boozSeed = require("./models/boozSeed.js");
 
 app.get("/boozSeed", (req, res) => {
