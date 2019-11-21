@@ -40,6 +40,7 @@ const boozSeed = require("./models/boozSeed.js");
 app.get("/boozSeed", (req, res) => {
   // seeds the data
   Booz.create(boozSeed, (err, createdBoozItems) => {
+    console.log("In boozSeed");
     console.log("createdBoozItems =>", createdBoozItems);
 
     res.redirect("/");

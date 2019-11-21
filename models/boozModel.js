@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 
 const boozSchema = new mongoose.Schema({
   rating: Number,
+  comments: String,
   details: Object
 });
 
