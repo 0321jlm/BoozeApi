@@ -3,10 +3,11 @@ const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const methodOverride = require("method-override");
+const cors = require("cors");
 
 // const port = 3000;
 // Allow use of Heroku's port or your own local port, depending on the environment
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3003;
 
 // MIDDLEWARE
 // body parser middleware
@@ -19,6 +20,21 @@ app.use(express.static(__dirname + "/public"));
 // CONTROLLERS
 // const showController = require("./controllers/show.js");
 // app.use("/show", showController);
+const whitelist = [
+  "http://localhost:3000",
+  "https://fathomless-sierra-68956.herokuapp.com"
+];
+const corsOptions = {
+  origin: (origin, callback) => {
+    if (whitelist.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error("Not allowed by CORS"));
+    }
+  }
+};
+
+app.use(cors(corsOptions));
 
 app.get("/", (req, res) => {
   Booz.find({}, (error, allBooz) => {
