@@ -7,7 +7,7 @@ const cors = require("cors");
 
 // const port = 3000;
 // Allow use of Heroku's port or your own local port, depending on the environment
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3003;
 
 // MIDDLEWARE
 const whitelist = ["http://localhost:3000", "*"];
