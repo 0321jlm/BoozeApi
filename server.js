@@ -10,7 +10,7 @@ const cors = require("cors");
 const PORT = process.env.PORT || 3003;
 
 // MIDDLEWARE
-const whitelist = ["http://localhost:3000", "*"];
+const whitelist = ["http://localhost:3001", "*"];
 const corsOptions = {
   origin: (origin, callback) => {
     if (whitelist.indexOf(origin) !== -1) {
@@ -22,7 +22,7 @@ const corsOptions = {
 };
 
 app.use(express.json());
-// app.use(cors(corsOptions));
+app.use(cors(corsOptions));
 app.use(methodOverride("_method"));
 // static files middleware
 app.use(express.static(__dirname + "/public"));
