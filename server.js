@@ -10,20 +10,7 @@ const cors = require("cors");
 const PORT = process.env.PORT || 3003;
 
 // MIDDLEWARE
-// body parser middleware
-
-app.use(express.json());
-app.use(methodOverride("_method"));
-// static files middleware
-app.use(express.static(__dirname + "/public"));
-
-// CONTROLLERS
-// const showController = require("./controllers/show.js");
-// app.use("/show", showController);
-const whitelist = [
-  "http://localhost:3000",
-  "https://fathomless-sierra-68956.herokuapp.com"
-];
+const whitelist = ["http://localhost:3001", "*"];
 const corsOptions = {
   origin: (origin, callback) => {
     if (whitelist.indexOf(origin) !== -1) {
@@ -34,7 +21,16 @@ const corsOptions = {
   }
 };
 
+app.use(express.json());
 app.use(cors(corsOptions));
+app.use(methodOverride("_method"));
+// static files middleware
+app.use(express.static(__dirname + "/public"));
+
+// CONTROLLERS
+const boozController = require("./controllers/booz.js");
+app.use("/booz", boozController);
+const Booz = require("./models/boozModel.js");
 
 app.get("/", (req, res) => {
   Booz.find({}, (error, allBooz) => {
@@ -50,7 +46,6 @@ app.get("/", (req, res) => {
   });
 });
 // SEED ROUTE
-const Booz = require("./models/boozModel.js");
 const boozSeed = require("./models/boozSeed.js");
 
 app.get("/boozSeed", (req, res) => {
