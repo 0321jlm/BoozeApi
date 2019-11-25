@@ -33,7 +33,7 @@ const setHeaders = (req, res, next) => {
 };
 
 app.use(express.json());
-app.use(setHeaders);
+// app.use(setHeaders);
 // app.use(cors(corsOptions));
 // static files middleware
 app.use(express.static(__dirname + "/public"));
