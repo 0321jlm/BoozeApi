@@ -12,7 +12,8 @@ const PORT = process.env.PORT || 3003;
 const whitelist = [
   "http://localhost:3001",
   "*",
-  "https://booz-api.herokuapp.com"
+  "https://booz-api.herokuapp.com",
+  "https://booz-app.surge.sh/"
 ];
 const corsOptions = {
   origin: (origin, callback) => {
@@ -25,7 +26,7 @@ const corsOptions = {
 };
 
 app.use(express.json());
-// app.use(cors(corsOptions));
+app.use(cors(corsOptions));
 // static files middleware
 app.use(express.static(__dirname + "/public"));
 
