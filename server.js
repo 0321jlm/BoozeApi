@@ -2,7 +2,6 @@
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
-const methodOverride = require("method-override");
 const cors = require("cors");
 
 // const port = 3000;
@@ -23,7 +22,6 @@ const corsOptions = {
 
 app.use(express.json());
 app.use(cors(corsOptions));
-app.use(methodOverride("_method"));
 // static files middleware
 app.use(express.static(__dirname + "/public"));
 
