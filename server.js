@@ -14,6 +14,7 @@ const whitelist = [
   "*",
   "https://booz-api.herokuapp.com",
   "https://booz-app.surge.sh/",
+  "https://booz-app.surge.sh",
   "http://booz-app.surge.sh/"
 ];
 const corsOptions = {
