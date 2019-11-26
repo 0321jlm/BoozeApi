@@ -30,7 +30,7 @@ const setHeaders = (req, res, next) => {
   res.header("Access-Control-Allow-Origin", "https://booz-app.surge.sh/");
   res.header("Access-Control-Allow-Origin", "http://booz-app.surge.sh/");
   res.header("Content-Type", "application/json");
-  res.headers.add("Access-Control-Allow-Origin", "*");
+  res.headers("Access-Control-Allow-Origin", "*");
 };
 
 app.use(express.json());
@@ -45,7 +45,7 @@ const boozController = require("./controllers/booz.js");
 app.use("/booz", boozController);
 const Booz = require("./models/boozModel.js");
 
-app.get("/", cors(corsOptions), (req, res) => {
+app.get("/", (req, res) => {
   Booz.find({}, (error, allBooz) => {
     if (error) {
       res.send(error);
