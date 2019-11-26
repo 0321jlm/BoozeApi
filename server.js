@@ -30,11 +30,13 @@ const setHeaders = (req, res, next) => {
   res.header("Access-Control-Allow-Origin", "https://booz-app.surge.sh/");
   res.header("Access-Control-Allow-Origin", "http://booz-app.surge.sh/");
   res.header("Content-Type", "application/json");
+  res.headers.add("Access-Control-Allow-Origin", "*");
 };
 
 app.use(express.json());
 // app.use(setHeaders);
-// app.use(cors(corsOptions));
+app.use(cors(corsOptions));
+
 // static files middleware
 app.use(express.static(__dirname + "/public"));
 
@@ -49,10 +51,6 @@ app.get("/", (req, res) => {
       res.send(error);
     } else {
       res.send(allBooz);
-      // {
-      //   res.render("index.ejs", {
-      //     Bookmarks: allBookmarks
-      // });
     }
   });
 });
