@@ -13,6 +13,8 @@ November 2019
 
 ### Backend URL
 
+https://booz-api.herokuapp.com/
+
 ### Key Techonologies
 
 Axios
@@ -26,5 +28,5 @@ Mongo DB
 
 ### Credits
 
-Stack Overflow
-Treillo
+Stack Overflow https://stackoverflow.com/
+Treillo https://trello.com/b/fp1KIcND/boozeapp
