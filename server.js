@@ -45,7 +45,7 @@ const boozController = require("./controllers/booz.js");
 app.use("/booz", boozController);
 const Booz = require("./models/boozModel.js");
 
-app.get("/", (req, res) => {
+app.get("/", cors(corsOptions), (req, res) => {
   Booz.find({}, (error, allBooz) => {
     if (error) {
       res.send(error);
